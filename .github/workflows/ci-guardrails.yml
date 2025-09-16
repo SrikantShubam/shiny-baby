@@ -18,3 +18,19 @@ jobs:
       - name: Run guardrails
         run: |
           bash scripts/ci_guardrails.sh
+
+
+- name: Build contacts parquet
+  run: |
+    python scripts/etl_contacts.py
+    test -s out/canon/contacts.parquet
+
+- name: Upload contacts parquet
+  uses: actions/upload-artifact@v4
+  with:
+    name: contacts-parquet
+    path: out/canon/contacts.parquet
+
+
+- name: Contacts QA
+  run: python scripts/check_contacts_quality.py
