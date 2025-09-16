@@ -1,0 +1,2 @@
+{"id":"FAM.FRONT_CONTACT_SLIM.v1","family":"FRONT_CONTACT_SLIM","signature":{"table_type":"FRONT_PAGE","min_anchor_count":1,"page_band":["front","mid"]},"ops":[{"op":"singlecol_compose"},{"op":"promote_front_fields"}],"confidence_gain":0.10,"enabled":true}
+{"id":"FAM.FRONT_CONTACT_KV.v1","family":"FRONT_CONTACT_KV","signature":{"table_type":"FRONT_PAGE","min_kv_labels":3},"ops":[{"op":"singlecol_compose"},{"op":"kv_pair_extractor"},{"op":"promote_front_fields"}],"confidence_gain":0.12,"enabled":true}

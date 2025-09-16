@@ -1961,6 +1961,8 @@ def looks_like_row_label_band(row: Dict[str,str]) -> bool:
     has_fin_labels = sum(t in left.lower() for t in ROW_LABEL_TOKENS) >= 2
     return left_heavy and has_fin_labels
 
+
+
 # (3b) Multirow period header composer
 PERIOD_ROW_PATTS = [
     re.compile(r"\b(as on|as at|as of|for the|nine months|half year|quarter|q[1-4]|h[12]|fy)\b", re.I),
@@ -1968,7 +1970,11 @@ PERIOD_ROW_PATTS = [
     re.compile(r"\b(20\d{2}|19\d{2})\b"),
     re.compile(r"\b₹\s*(in|million|crore|lakh)\b", re.I),
     re.compile(r"\bfy\s*\d{2}\s*[-/]\s*\d{2}\b", re.I),
+    re.compile(r"\b(jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec|january|february|march|april|june|july|august|september|october|november|december)\b", re.I)
 ]
+MONTHS = r"(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*"
+PERIOD_ROW_PATTS.insert(0, re.compile(fr"\b{MONTHS}\b.*\b(20\d{{2}}|19\d{{2}})\b", re.I))
+
 
 FP_TOKENS = (
     "registrar", "rta", "brlm", "book running lead manager",
@@ -2339,6 +2345,18 @@ class Surgeon:
             if table_type == TableType.FRONT_PAGE and all(h.startswith("Column_") for h in display_headers):
                 new_headers, new_data_rows, _note = infer_semantic_headers_for_front_page(data_rows, display_headers)
                 display_headers, data_rows = new_headers, new_data_rows
+
+                
+        # FRONT_PAGE de-dup of near-identical lines (contact slabs often repeat)
+        if table_type == TableType.FRONT_PAGE and data_rows:
+            seen_lines = set()
+            pruned = []
+            for r in data_rows:
+                k = " ".join((c or "").strip().lower() for c in r)
+                if k and k not in seen_lines:
+                    pruned.append(r)
+                    seen_lines.add(k)
+            data_rows = pruned
 
         # --------------------
         # POLICY PRE-GATE (before any rejection)

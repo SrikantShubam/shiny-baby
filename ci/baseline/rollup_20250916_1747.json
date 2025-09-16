@@ -1,0 +1,19 @@
+{
+  "docs": [
+    "Aadhar_Housing_Finance_Ltd.pdf",
+    "Advanced_Systek_Limited.pdf",
+    "Advance_Agrolife_Limited.pdf",
+    "Addendum_to_Motisons_Jewellers_Limited.pdf",
+    "Addendum_to_DRHP_of_Sah_Polymers_Limited_merged.pdf"
+  ],
+  "composite_avg": 0.5315,
+  "SI_avg": 0.527,
+  "SC_avg": 0.675,
+  "AIQ_avg": 0.3272,
+  "processed_total": 251,
+  "skipped_total": 1300,
+  "kpis": {
+    "target_composite": 0.78,
+    "meets_target": false
+  }
+}
