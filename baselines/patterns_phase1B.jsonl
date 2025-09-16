@@ -1,0 +1,9 @@
+{"id":"FAM.FRONT_CONTACT_SLIM.v1","family":"FRONT_CONTACT_SLIM","signature":{"table_type":"FRONT_PAGE","min_anchor_count":1,"page_band":["front","mid"]},"ops":[{"op":"singlecol_compose"},{"op":"promote_front_fields"}],"confidence_gain":0.10,"enabled":true}
+{"id":"FAM.FRONT_CONTACT_KV.v1","family":"FRONT_CONTACT_KV","signature":{"table_type":"FRONT_PAGE","min_kv_labels":3},"ops":[{"op":"singlecol_compose"},{"op":"kv_pair_extractor"},{"op":"promote_front_fields"}],"confidence_gain":0.12,"enabled":true}
+{"id":"FAM.GENERIC_TEXT_DEF.v1","family":"GENERIC_TEXT_DEF","signature":{"table_type":"GENERIC","min_rows":3,"has_columns":["term","description"],"max_char_per_row":420},"ops":[{"op":"singlecol_compose"}],"confidence_gain":0.03,"enabled":false}
+{"id":"GENERIC_TEXT_DEF.v1",
+ "family":"GENERIC_TEXT_DEF",
+ "signature":{"table_type":"GENERIC","page_band":["mid","back"],"min_kv_labels":2,"max_rows":50,"max_char_per_row":280},
+ "ops":[{"op":"singlecol_compose"},{"op":"kv_pair_extractor"}],
+ "confidence_gain":0.03,
+ "enabled": true}
