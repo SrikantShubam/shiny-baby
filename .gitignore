@@ -1,0 +1,88 @@
+# --- Python bytecode / cache ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# --- Packaging / build ---
+build/
+dist/
+.eggs/
+*.egg-info/
+*.egg
+wheels/
+pip-wheel-metadata/
+
+# --- Virtual envs ---
+.venv/
+venv/
+env/
+ENV/
+phoenix_env/
+
+# --- Test / coverage ---
+.tox/
+.nox/
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+*.cover
+*.py,cover
+.hypothesis/
+pytestdebug.log
+
+# --- Static analysis caches ---
+.mypy_cache/
+.pyre/
+.pytype/
+.ruff_cache/
+.dmypy.json
+dmypy.json
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+
+# --- Editors / IDEs ---
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# --- OS cruft ---
+.DS_Store
+Thumbs.db
+
+# --- Env / secrets ---
+.env
+.env.*
+!.env.example
+
+# --- Logs ---
+logs/
+log/
+*.log
+out/logs/
+
+# --- Project outputs (don’t version generated artifacts) ---
+out/
+out/**
+
+# --- Data (keep JSON, ignore large/binary inputs) ---
+data/**/*.pdf
+data/**/*.PDF
+data/**/*.zip
+data/**/*.gz
+data/**/*.7z
+data/**/*.tar
+data/**/*.csv
+data/**/*.xlsx
+
+# --- Misc temp ---
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo

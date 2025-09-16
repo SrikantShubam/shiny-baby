@@ -1,0 +1,38 @@
+paths:
+  raw_dir: "data/raw"
+  spot_dir: "data/spot"
+  preproc_dir: "data/preproc"
+  review_dir: "data/review"
+  patterns: "data/patterns/patterns.jsonl"
+
+two_key:
+  enable: true
+  cv_gate: 0.50         # not used in Phase-1A (no CV), reserved for Phase-1C
+  structure_gate: 0.35  # tabularity threshold when no CV bbox is present
+  structure_gate_cv: 0.30
+
+surgeon:
+  header_max_rows: 4
+  prose_split_chars: 250
+  dedupe: true
+  min_content_threshold: 0.30
+  confidence_autopass: 0.62   # Phase-1A; raise to 0.85 when stable
+
+confidence_weights:
+  cv_score: 0.25
+  grid_consistency: 0.30
+  numeric_density: 0.20
+  period_detected: 0.15
+  header_vocab_match: 0.10
+
+
+
+learning:
+  enabled: true
+  patterns_path: "out/patterns/patterns.jsonl"
+  events_path: "out/review/learning_events.jsonl"
+  exploration_rate: 0.15        # epsilon for ε-greedy (policy will upgrade to Thompson later)
+  min_gain: 0.08                 # minimum objective improvement to accept a recipe
+  candidate_limit: 6             # max recipes to evaluate per table
+  canary_fraction: 0.10          # portion of docs held out to watch for regressions
+  guards_required: ["G1","G2","G4"]   # structural guardrails always enforced
