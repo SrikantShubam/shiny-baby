@@ -1,0 +1,14 @@
+{
+  "Registrar": ["registrar to the issue", "rta", "registrar to the offer"],
+  "Lead Manager": ["book running lead manager", "brlm", "merchant banker", "global coordinator"],
+  "Contact": ["contact person", "company secretary", "compliance officer", "investor relations"],
+  "Email": ["email", "e-mail", "e mail"],
+  "Website": ["website", "web site", "url"],
+  "Telephone": ["telephone", "tel", "phone", "mobile", "fax", "mob."],
+  "CIN": ["cin"],
+  "ISIN": ["isin"],
+  "PAN": ["pan"],
+  "SEBI Reg.": ["sebi", "sebi reg", "sebi registration"],
+  "GSTIN": ["gstin"],
+  "Bankers to the Issue": ["bankers to the issue", "banker to the issue"]
+}
