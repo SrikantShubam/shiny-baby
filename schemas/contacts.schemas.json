@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "contacts_dim",
+  "type": "object",
+  "properties": {
+    "source_doc":   {"type":"string"},
+    "page":         {"type":"integer"},
+    "table_index":  {"type":"integer"},
+    "org":          {"type":"string"},
+    "role":         {"type":"string"},
+    "person":       {"type":"string"},
+    "email":        {"type":"string"},
+    "phone":        {"type":"string"},
+    "url":          {"type":"string"},
+    "address_raw":  {"type":"string"},
+    "notes":        {"type":"string"}
+  },
+  "required": ["source_doc","page"]
+}

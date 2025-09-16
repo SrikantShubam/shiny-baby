@@ -1,0 +1,20 @@
+name: Guardrails
+on:
+  pull_request:
+  push:
+    branches: [ master ]
+jobs:
+  guardrails:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.13' }
+      - name: Set up venv + deps
+        run: |
+          python -m venv phoenix_env
+          source phoenix_env/bin/activate
+          pip install -r requirements.txt
+      - name: Run guardrails
+        run: |
+          bash scripts/ci_guardrails.sh
